@@ -67,11 +67,11 @@ end
 
 spec = Gem::Specification.new do |s|
   s.name = "humpyard_form"
-  s.summary = %Q{HumpyardForm is a Rails auth system}
-  s.description = %Q{A HumpyardForm is doing fare control. So HumpyardForm is an authentication system for Rails 3 applications.}
-  s.email = 'info@spom.net'
-  s.homepage = 'http://spom.net/'
-  s.authors = ['Sven G. Broenstrup']
+  s.summary = %Q{HumpyardForm is a Rails form builder}
+  s.description = %Q{HumpyardForm is an form builder for Rails 3 applications. It is developed as part of the humpyard cms}
+  s.email = 'info@humpyard.org'
+  s.homepage = 'http://humpyard.org/'
+  s.authors = ['Sven G. Broenstrup', 'Andreas Pieper']
   s.files = Dir["{lib}/**/*", "{app}/*/humpyard_form/**/*", "{config}/locales/*", "{compass}/**/*", "VERSION", "README*", "LICENCE", "Gemfile"]
   s.version = ::File.read(::File.join(::File.dirname(__FILE__), "VERSION")).strip
 #  s.add_development_dependency 'rspec', '>= 1.2.9'

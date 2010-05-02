@@ -4,18 +4,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{humpyard_form}
-  s.version = "0.0.0"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Sven G. Broenstrup"]
+  s.authors = ["Sven G. Broenstrup", "Andreas Pieper"]
   s.date = %q{2010-05-02}
-  s.description = %q{A HumpyardForm is doing fare control. So HumpyardForm is an authentication system for Rails 3 applications.}
-  s.email = %q{info@spom.net}
-  s.files = ["lib/humpyard_form", "lib/humpyard_form/action_controller", "lib/humpyard_form/action_controller/base.rb", "lib/humpyard_form/action_view", "lib/humpyard_form/action_view/form_helper.rb", "lib/humpyard_form/compass.rb", "lib/humpyard_form/config.rb", "lib/humpyard_form/engine.rb", "lib/humpyard_form.rb", "app/views/humpyard_form/_datetime_input.html.haml", "app/views/humpyard_form/_file_input.html.haml", "app/views/humpyard_form/_form.html.haml", "app/views/humpyard_form/_form_element.html.haml", "app/views/humpyard_form/_image_file_input.html.haml", "app/views/humpyard_form/_select_input.html.haml", "app/views/humpyard_form/_string_input.html.haml", "app/views/humpyard_form/_submit.html.haml", "app/views/humpyard_form/_text_input.html.haml", "config/locales/en.yml", "VERSION", "README.rdoc", "LICENCE", "Gemfile"]
-  s.homepage = %q{http://spom.net/}
+  s.description = %q{HumpyardForm is an form builder for Rails 3 applications. It is developed as part of the humpyard cms}
+  s.email = %q{info@humpyard.org}
+  s.files = ["lib/humpyard_form", "lib/humpyard_form/action_controller", "lib/humpyard_form/action_controller/base.rb", "lib/humpyard_form/action_view", "lib/humpyard_form/action_view/form_helper.rb", "lib/humpyard_form/compass.rb", "lib/humpyard_form/config.rb", "lib/humpyard_form/engine.rb", "lib/humpyard_form/form_builder.rb", "lib/humpyard_form.rb", "app/views/humpyard_form/_datetime_input.html.haml", "app/views/humpyard_form/_file_input.html.haml", "app/views/humpyard_form/_form.html.haml", "app/views/humpyard_form/_form_element.html.haml", "app/views/humpyard_form/_image_file_input.html.haml", "app/views/humpyard_form/_select_input.html.haml", "app/views/humpyard_form/_string_input.html.haml", "app/views/humpyard_form/_submit.html.haml", "app/views/humpyard_form/_text_input.html.haml", "config/locales/en.yml", "VERSION", "README.rdoc", "LICENCE", "Gemfile"]
+  s.homepage = %q{http://humpyard.org/}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{HumpyardForm is a Rails auth system}
+  s.summary = %q{HumpyardForm is a Rails form builder}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
