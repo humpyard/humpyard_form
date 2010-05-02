@@ -23,5 +23,20 @@ module HumpyardForm
     def configure(&block)
       yield(self)
     end
+    
+    def locales=(locales) #:nodoc:
+      if locales.nil? 
+        @locales = nil
+      elsif locales.class == Array
+        @locales = locales.map{|l| l.to_sym}
+      else
+        @locales = locales.split(',').collect{|l| l.to_sym}
+      end
+    end
+    
+    def locales #:nodoc:
+      @locales ||= [:en]
+    end
+    
   end
 end
