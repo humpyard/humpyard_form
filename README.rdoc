@@ -1,0 +1,37 @@
+= humpyard_form
+
+A HumpyardForm is doing fare control. So HumpyardForm is an authentication system for Rails 3 applications.
+
+== Installation
+
+* Add HumpyardForm to your Rails application's Gemfile. It does require edge rails at the moment.
+    gem 'rails',        :git => 'git://github.com/rails/rails.git'
+    gem 'haml',         :git => 'git://github.com/nex3/haml.git'
+    gem 'compass',      :git => 'git://github.com/chriseppstein/compass.git'
+    gem 'humpyard_form',       :git => 'git://github.com/starpeak/humpyard_form.git'
+  
+* Change into your Rails application's directory
+
+* Generate HumpyardForm skeleton
+    rails generate humpyard_form:skeleton
+
+* Migrate the HumpyardForm database tables
+    rake humpyard_form:db:migrate
+
+== API Documentation
+
+* API Documentation can be created by running 
+    rake rdoc
+  from the humpyard_form project directory.
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. No discussion. No tests, no game. We use rspec and cucumber with associated addons.
+* Commit, do not mess with rakefile, version, or history. If you want to have your own version, thats fine. But bump your version in a seperate commit that can be ignored when pulling.
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Sven G. Brönstrup. See LICENSE for details.

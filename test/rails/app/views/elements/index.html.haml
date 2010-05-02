@@ -1,0 +1,7 @@
+%h1 Elements
+
+- @elements.each do |element|
+  = link_to element.title, element
+  %br
+  
+= link_to 'New Element', new_element_path

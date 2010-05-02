@@ -1,0 +1,19 @@
+%h1 
+  Show Element
+  = @element.id
+
+%p
+  Title:
+  %br
+  = @element.title
+%p
+  Description:
+  %br
+  = @element.description
+  
+%p
+  =link_to 'Edit', edit_element_path(@element)
+  |
+  =link_to 'View all', elements_path
+  |
+  =link_to 'Destroy', @element, :method => :delete

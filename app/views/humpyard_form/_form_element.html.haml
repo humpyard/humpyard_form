@@ -1,0 +1,9 @@
+- puts name
+.input{:class => "attr_#{name}"}
+  %div
+    %label{:for => "#{form.namespace}[#{name}]", :class => form.object.class.validators_on(name.to_s).map(&:class).include?(ActiveModel::Validations::PresenceValidator) ? 'required' : false}
+      = form.object.class.human_attribute_name(name)
+    %span.field-errors.ui-state-error-text{:style => form.object.errors[name].first.nil? ? 'display:none;' : ''}
+      = form.object.errors[name].first
+  %div
+    = render :partial => "/humpyard_form/#{as.to_s}_input", :locals => {:form => form, :name => name, :options => options}
