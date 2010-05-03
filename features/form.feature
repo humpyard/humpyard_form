@@ -3,7 +3,6 @@ Feature: Form
   As a role
   I want feature
   
-  @javascript
   Scenario: New Element
     Given I am on the elements page
     When I follow "New Element"
@@ -15,7 +14,6 @@ Feature: Form
     And I press "Create Element" within "form"
     Then I should see "Show Element"
 
-  @javascript
   Scenario: Edit Element
     Given an element exists with title: "Test Element"
     When I go to that element's edit page
