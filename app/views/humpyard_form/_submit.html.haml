@@ -1,1 +1,1 @@
-%button Submit
+%button=I18n.t("humpyard_form.buttons.#{form.object.persisted? ? 'update' : 'create'}", :model => form.object.class.model_name.human)

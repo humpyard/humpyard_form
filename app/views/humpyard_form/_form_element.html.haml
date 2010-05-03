@@ -1,4 +1,3 @@
-- puts name
 .input{:class => "attr_#{name}"}
   %div
     %label{:for => "#{form.namespace}[#{name}]", :class => form.object.class.validators_on(name.to_s).map(&:class).include?(ActiveModel::Validations::PresenceValidator) ? 'required' : false}

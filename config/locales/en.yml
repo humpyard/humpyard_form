@@ -1,3 +1,6 @@
 en:
   humpyard_form:
     start: 'Loading HumpyardForm {{version}}'
+    buttons:
+      create: "Create {{model}}"
+      update: "Update {{model}}"
