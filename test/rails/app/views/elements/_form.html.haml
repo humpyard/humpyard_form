@@ -1,4 +1,21 @@
 = humpyard_form_for @element, :html=>{:'data-dialog-remote' => true, :'data-form-object-class' => "page", :class=>'page_form humpyard_form'} do |form|
   = form.input :title
   = form.input :description
+  
+  = form.input :phone, :as => :tel
+  = form.input :url, :as => :url
+  = form.input :email, :as => :email
+        
+  = form.input :date
+  = form.input :time
+  = form.input :datetime
+
+  = form.input :week, :as => :week
+  = form.input :month, :as => :month
+
+  = form.input :color, :as => :color
+  = form.input :number
+  = form.input :password
+  = form.input :query, :as => :search
+  
   = form.submit

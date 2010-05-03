@@ -1,1 +1,1 @@
-%input{:type => "text", :name => "#{form.namespace}[#{name}]", :value => "#{form.object.send(name)}", :'data-date-input' => "true", :class => "datetime-field text ui-widget-content ui-corner-all field-highlight"}
+%input{:type => "datetime", 'data-type' => "datetime", :name => "#{form.namespace}[#{name}]", :value => "#{form.object.send(name)}", :class => "datetime-field text ui-widget-content ui-corner-all field-highlight"}

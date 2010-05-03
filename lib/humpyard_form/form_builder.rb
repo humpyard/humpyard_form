@@ -115,9 +115,10 @@ module HumpyardForm
         return :time_zone if column.type == :string && method.to_s =~ /time_zone/
         return :select    if column.type == :integer && method.to_s =~ /_id$/
         return :datetime  if column.type == :timestamp
-        return :numeric   if [:integer, :float, :decimal].include?(column.type)
+        return :numeric   if column.type == :integer
+        return :decimal   if [:float, :decimal].include?(column.type)
         return :password  if column.type == :string && method.to_s =~ /password/
-        return :country   if column.type == :string && method.to_s =~ /country/
+        #return :country   if column.type == :string && method.to_s =~ /country/
 
         # otherwise assume the input name will be the same as the column type (eg string_input)
         return column.type
