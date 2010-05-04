@@ -2,17 +2,34 @@
   Show Element
   = @element.id
 
-%p
-  Title:
-  %br
-  = @element.title
-%p
-  Description:
-  %br
-  = @element.description
-  
+= humpyard_form_for @element, :html=>{:'data-dialog-remote' => true, :'data-form-object-class' => "element", :class=>'page_form humpyard_form'} do |form|
+  = form.input :title, :readonly => true
+  = form.input :description, :readonly => true
+
+  = form.input :phone, :as => :tel, :readonly => true
+  = form.input :url, :as => :url, :readonly => true
+  = form.input :email, :as => :email, :readonly => true
+
+  = form.input :date, :readonly => true
+  = form.input :time, :readonly => true
+  = form.input :datetime, :readonly => true
+
+  = form.input :week, :as => :week, :readonly => true
+  = form.input :month, :as => :month, :readonly => true
+
+  = form.input :color, :as => :color, :readonly => true
+  = form.input :number, :readonly => true
+  = form.input :decimal, :readonly => true
+  = form.input :float, :readonly => true
+  = form.input :range, :as => :range, :readonly => true
+  = form.input :password, :readonly => true
+  = form.input :query, :as => :search, :readonly => true
+  = form.input :checkable, :readonly => true
+
 %p
   =link_to 'Edit', edit_element_path(@element)
+  |
+  =link_to 'Edit with Options', options_edit_element_path(@element)
   |
   =link_to 'View all', elements_path
   |

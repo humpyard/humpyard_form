@@ -34,41 +34,16 @@ module HumpyardForm
       end
     end
     
+    def uuid
+      @uuid ||= rand(1000)
+    end
+    
     def inputs
     end
     
-    # def input(method, options = {})
-    #   options[:required] = method_required?(method) unless options.key?(:required)
-    #   options[:as]     ||= default_input_type(method)
-    # 
-    #   html_class = [ options[:as], (options[:required] ? :required : :optional) ]
-    #   html_class << 'error' if @object && @object.respond_to?(:errors) && !@object.errors[method.to_sym].blank?
-    # 
-    #   wrapper_html = options.delete(:wrapper_html) || {}
-    #   wrapper_html[:id]  ||= generate_html_id(method)
-    #   wrapper_html[:class] = (html_class << wrapper_html[:class]).flatten.compact.join(' ')
-    # 
-    #   if options[:input_html] && options[:input_html][:id]
-    #     options[:label_html] ||= {}
-    #     options[:label_html][:for] ||= options[:input_html][:id]
-    #   end
-    # 
-    #   input_parts = @@inline_order.dup
-    #   input_parts.delete(:errors) if options[:as] == :hidden
-    #   
-    #   list_item_content = input_parts.map do |type|
-    #     send(:"inline_#{type}_for", method, options)
-    #   end.compact.join("\n")
-    # 
-    #   return template.content_tag(:li, list_item_content, wrapper_html)
-    # end
-    
-    
     def input(method, options={}) #:nodoc:
-      #options[:required] = method_required?(method) unless options.key?(:required)
       options[:as] ||= default_input_type(method)
       options[:translation_info] = translation_info(method)
-      #puts options.inspect
       @renderer.render :partial => "/humpyard_form/form_element", :locals => {:form => self, :name => method, :options => options, :as => options[:as]}
     end
     
@@ -115,8 +90,7 @@ module HumpyardForm
         return :time_zone if column.type == :string && method.to_s =~ /time_zone/
         return :select    if column.type == :integer && method.to_s =~ /_id$/
         return :datetime  if column.type == :timestamp
-        return :numeric   if column.type == :integer
-        return :decimal   if [:float, :decimal].include?(column.type)
+        return :numeric   if [:integer, :float, :decimal].include?(column.type)
         return :password  if column.type == :string && method.to_s =~ /password/
         #return :country   if column.type == :string && method.to_s =~ /country/
 

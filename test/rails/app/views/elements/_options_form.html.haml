@@ -1,0 +1,27 @@
+= humpyard_form_for @element, :html=>{:'data-dialog-remote' => true, :'data-form-object-class' => "element", :class=>'page_form humpyard_form'} do |form|
+  = hidden_field :with_options, true
+  
+  = form.input :title, :autocomplete => false, :maxlength => 15, :pattern => '[a-zA-Z]{3}', :placeholder => "Accepts only test", :readonly => false, :required => false, :size => 10
+  = form.input :description, :required => true, :autocomplete => false, :maxlength => 15, :pattern => '[.a-zA-Z]*', :placeholder => "Your description", :readonly => false, :required => false, :rows => 10, :cols => 10, :wrap => 'hard'
+  
+  = form.input :phone, :as => :tel, :autocomplete => false, :maxlength => 15, :pattern => '[0-9]*', :placeholder => "Accepts only numbers", :readonly => false, :required => true, :size => 10
+  = form.input :url, :as => :url, :autocomplete => false, :maxlength => 15, :pattern => '[:\/\.a-zA-Z]*', :placeholder => "No numbers accepted", :readonly => false, :required => true, :size => 10
+  = form.input :email, :as => :email, :autocomplete => false, :maxlength => 15, :pattern => '[\.@a-zA-Z]*', :placeholder => "No numbers accepted", :readonly => false, :required => true, :size => 10
+        
+  = form.input :date, :autocomplete => false, :min => (Time.now - 6.month), :max => (Time.now + 6.month), :step => 10, :readonly => false, :required => true
+  = form.input :time, :autocomplete => false, :min => '09:00', :max => '18:00', :step => 15, :readonly => false, :required => true
+  = form.input :datetime, :autocomplete => false, :min => (Time.now - 6.month), :max => (Time.now + 6.month), :step => 15, :readonly => false, :required => true
+
+  = form.input :week, :as => :week, :autocomplete => false, :min => (Time.now - 3.month), :max => (Time.now + 3.month), :step => 2, :readonly => false, :required => true
+  = form.input :month, :as => :month, :autocomplete => false, :min => (Time.now - 9.month), :max => (Time.now + 9.month), :step => 2, :readonly => false, :required => true
+
+  = form.input :color, :as => :color, :required => true
+  = form.input :number, :autocomplete => false, :min => -50, :max => 50, :step => 10, :required => true
+  = form.input :decimal, :autocomplete => false, :min => -50, :max => 50, :step => 10, :required => true
+  = form.input :float, :autocomplete => false, :min => -50, :max => 50, :step => 10, :required => true
+  = form.input :range, :as => :range, :autocomplete => false, :min => -50, :max => 50, :step => 10, :list => [-50, -10, 0, 10, 50]
+  = form.input :password, :autocomplete => false, :maxlength => 15, :pattern => '[0-9]*', :placeholder => "Your numeric password", :readonly => false, :required => true, :size => 10
+  = form.input :query, :as => :search, :autocomplete => false, :maxlength => 15, :pattern => '[\.@a-zA-Z]*', :placeholder => "Accepts only test", :readonly => false, :required => true, :size => 10
+  = form.input :checkable
+  
+  = form.submit

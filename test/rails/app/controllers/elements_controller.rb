@@ -7,16 +7,28 @@ class ElementsController < ::ApplicationController
     @element = Element.new
   end
   
+  def options_new
+    @element = Element.new
+  end
+  
   def create
     @element = Element.new params[:element]
     if @element.save
       render 'show'
     else
-      render 'new'
+      if params[:with_options]
+        render 'options_new'
+      else
+        render 'new'
+      end
     end
   end
   
   def edit
+    @element = Element.find(params[:id])
+  end
+  
+  def options_edit
     @element = Element.find(params[:id])
   end
   
@@ -25,7 +37,11 @@ class ElementsController < ::ApplicationController
     if @element.update_attributes params[:element]
       render 'show'
     else
-      render 'edit'
+      if params[:with_options]
+        render 'options_edit'
+      else
+        render 'edit'
+      end
     end
   end
   

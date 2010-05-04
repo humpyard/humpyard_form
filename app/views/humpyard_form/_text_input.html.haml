@@ -1,2 +1,2 @@
-%textarea{:name => "#{form.namespace}[#{name}]", :class => "text ui-widget-content ui-corner-all field-highlight"}
+%textarea{:name => "#{form.namespace}[#{name}]", :class => "text ui-widget-content ui-corner-all field-highlight", :maxlength => options[:maxlength].blank? ? false : options[:maxlength], :cols => options[:cols].blank? ? false : options[:cols], :rows => options[:rows].blank? ? false : options[:rows], :wrap => options[:wrap].blank? ? false : options[:wrap], :placeholder => options[:placeholder].blank? ? false : options[:placeholder], :disabled => options[:readonly] ? 'disabled' : false, :required => options[:required] ? true : false}
   = preserve raw(form.object.send(name))

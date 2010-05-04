@@ -1,0 +1,1 @@
+%input{:type => "checkbox", :name => "#{form.namespace}[#{name}]", :value => "#{options[:value] || 1}", :class => "boolean ui-widget-content ui-corner-all field-highlight", :checked => form.object.send(name) ? 'checked' : false, :required => options[:required] ? true : false}

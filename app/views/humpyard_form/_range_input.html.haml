@@ -1,0 +1,5 @@
+%input{:type => "range", 'data-type' => "range", :name => "#{form.namespace}[#{name}]", :value => form.object.send(name).blank? ? false : "#{form.object.send(name)}", :class => "range-field text ui-widget-content ui-corner-all field-highlight", :autocomplete => options[:autocomplete].nil? ? false : options[:autocomplete] ? 'on' : 'off', :min => options[:min].blank? ? false : options[:min], :max => options[:max].blank? ? false : options[:max], :step => options[:step].blank? ? false : options[:step], :required => options[:required] ? true : false, :list => options[:list].blank? ? false : "#{form.namespace}_#{name}_#{form.uuid}_list"}
+- unless options[:list].blank?
+  %datalist{:id => "#{form.namespace}_#{name}_#{form.uuid}_list"}
+    - options[:list].each do |item|
+      %option{:value => item}
