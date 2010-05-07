@@ -1,6 +1,9 @@
 %h1 
   Show Element
   = @element.id
+  (
+  = @element.title
+  )
 
 = humpyard_form_for @element, :html=>{:'data-dialog-remote' => true, :'data-form-object-class' => "element", :class=>'page_form humpyard_form'} do |form|
   = form.input :title, :readonly => true
