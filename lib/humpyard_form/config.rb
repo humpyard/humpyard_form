@@ -14,6 +14,8 @@ module HumpyardForm
   #    The default value is <tt>"admin"</tt>
 
   class Config 
+    attr_writer :collection_label_methods
+    
     def initialize(&block) #:nodoc:
       configure(&block) if block_given?
     end
@@ -38,5 +40,8 @@ module HumpyardForm
       @locales ||= [:en]
     end
     
+    def collection_label_methods
+      @collection_label_methods ||= %w[to_label display_name full_name name title username login value to_s]
+    end
   end
 end
