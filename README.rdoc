@@ -32,6 +32,10 @@ A HumpyardForm is doing fare control. So HumpyardForm is an authentication syste
 * Commit, do not mess with rakefile, version, or history. If you want to have your own version, thats fine. But bump your version in a seperate commit that can be ignored when pulling.
 * Send me a pull request. Bonus points for topic branches.
 
+== Credits
+
+We want to send our thanks to Justin French and his co-workers as formtastic deeply inspired this gem.
+
 == Copyright
 
 Copyright (c) 2010 Sven G. Brönstrup. See LICENSE for details.
