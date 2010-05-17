@@ -1,6 +1,6 @@
 = humpyard_form
 
-A HumpyardForm is doing fare control. So HumpyardForm is an authentication system for Rails 3 applications.
+A HumpyardForm is a form builder spun off from humpyard.
 
 == Installation
 
