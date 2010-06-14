@@ -1,7 +1,7 @@
 module HumpyardForm
   ####
   # HumpyardForm::FormHelper is a helper for forms 
-  class FormBuilder 
+  class FormBuilder < ::ActionView::Helpers::FormBuilder
     attr_reader :object, :options, :html_options, :url, :form_type
     
     @@file_methods = [ :file?, :public_filename ]
@@ -25,7 +25,7 @@ module HumpyardForm
         @html_options[:method] = :post 
       end
     end
-    
+        
     def namespace
       if @options[:as]
         @options[:as]
@@ -221,6 +221,10 @@ module HumpyardForm
 
       raise "Cannot infer group association for #{method} grouped by #{group_by}, there were #{possible_associations.empty? ? 'no' : possible_associations.size} possible associations. Please specify using :group_association"
     end
+    
+    
+ 
+    
     
     # Returns a hash to be used by radio and select inputs when a boolean field
     # is provided.
