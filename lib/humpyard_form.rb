@@ -42,6 +42,7 @@ end
 require File.expand_path('../humpyard_form/config', __FILE__)
 require File.expand_path('../humpyard_form/engine', __FILE__)
 require File.expand_path('../humpyard_form/compass', __FILE__)
+require File.expand_path('../humpyard_form/form_builder', __FILE__)
 
 require 'i18n'
 I18n.load_path += Dir.glob("#{File.dirname(__FILE__)}/../config/locales/*.yml")
