@@ -112,7 +112,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency 'haml', '>= 3.0.0.rc.4'
   s.add_dependency 'compass', '>= 0.10.0.rc5'
   s.add_dependency 'cancan', '>= 1.1.1'
-  s.add_dependency 'globalize2', '>= 0.2.0'
+  #s.add_dependency 'globalize2', '>= 0.2.0'
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
