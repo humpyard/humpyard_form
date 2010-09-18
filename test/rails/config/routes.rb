@@ -1,4 +1,4 @@
-TestHumpyardForm::Application.routes.draw do |map|
+TestHumpyardForm::Application.routes.draw do 
   resources :elements do
     collection do
       get :options_new

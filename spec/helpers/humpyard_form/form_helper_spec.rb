@@ -1,10 +1,7 @@
 require 'spec_helper'
 
-
 describe HumpyardForm::ActionView::FormHelper do
   include HumpyardForm::ActionView::FormHelper
-  include ActionController::PolymorphicRoutes
-  include ActionView::Helpers::RecordIdentificationHelper
 
   # DAMN! how to get a view context into the spec context?
   # then we would not have to stub all those methods below

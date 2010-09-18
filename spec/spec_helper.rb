@@ -1,8 +1,6 @@
 ENV["RAILS_ENV"] ||= 'test'
-require File.dirname(__FILE__) + "/../test/rails/config/environment" unless defined?(Rails.root)
+require File.dirname(__FILE__) + "/../test/rails/config/environment" unless defined?(Rails)
 require 'rspec/rails'
-require 'rspec/rails/transactional_database_support'
-require 'rspec/core/configuration.rb'
 
 require 'factory_girl'
 Dir.glob(File.join(File.dirname(__FILE__), '../test/factories/**/*.rb')).each {|f| require f }  
