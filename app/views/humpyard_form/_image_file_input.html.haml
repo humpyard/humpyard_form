@@ -3,7 +3,7 @@
     - style = form.object.send(name).styles[:thumb]
     = image_tag form.object.send(name).url(:thumb), :size => style.geometry.match(/(\d+x\d+)/)[1]
   - else
-    = image_tag form.object.send(name).ur
+    = image_tag form.object.send(name).url
   [
   = form.object.send("#{name}_file_name")
   = form.object.send("#{name}_file_size")
