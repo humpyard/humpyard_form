@@ -5,8 +5,8 @@ log/*.log
 capybara-*
 coverage*
 .bundle/config
-pkg
-tmp
+pkg/*
+tmp/*
 test/unit/humpyard/log/*
 rdoc
 test/rails/db/schema.rb
