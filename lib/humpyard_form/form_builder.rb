@@ -12,6 +12,7 @@ module HumpyardForm
       @renderer = renderer
       @object = @renderer.convert_to_model(object)
       @html_options = options.delete(:html) || {}
+      @html_options[:class] = @html_options[:class] ? "#{@html_options[:class]} humpyard-form" : 'humpyard-form'
       @url = options.delete(:url) || @renderer.polymorphic_path(@object)
       @options = options
       

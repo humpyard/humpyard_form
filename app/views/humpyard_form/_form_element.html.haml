@@ -1,4 +1,4 @@
-.input{:class => "attr_#{name}"}
+.input{:class => "attr_#{name} #{as.to_s}_input"}
   %div
     - if options[:required].nil?
       - options[:required] = form.object.class.validators_on(name.to_s).map(&:class).include?(ActiveModel::Validations::PresenceValidator)
