@@ -1,0 +1,6 @@
+de:
+  humpyard_form:
+    start: 'HumpyardForm %{version} laden'
+    buttons:
+      create: "%{model} erstellen"
+      update: "%{model} speichern"
