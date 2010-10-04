@@ -48,6 +48,24 @@ module HumpyardForm
       @renderer.render :partial => "/humpyard_form/form_element", :locals => {:form => self, :name => method, :options => options, :as => options[:as]}
     end
     
+    def inputs_for(method, options={}, &block)
+      records = object.send(method)
+      result = ''
+      counter = 0
+      records.each do |record|
+        form = HumpyardForm::FormBuilder.new(@renderer, record, :url => @url, :as => "#{namespace}[#{method}_attributes][#{counter}]")
+        inner_haml = @renderer.capture_haml(form, &block)
+        result += @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml}
+        counter += 1
+      end
+      if options[:add_empty_set]
+        form = HumpyardForm::FormBuilder.new(@renderer, records.new, :url => @url, :as => "#{namespace}[#{method}_attributes][#{counter}]")
+        inner_haml = @renderer.capture_haml(form, &block)
+        result += @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml} 
+      end
+      result.html_safe
+    end
+    
     def submit(options={})
       @renderer.render :partial => '/humpyard_form/submit', :locals => {:form => self, :options => options}
     end
