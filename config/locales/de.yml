@@ -23,7 +23,7 @@ de:
       update_success: "%{model} erfolgreich aktualisiert."
       update_fail: "%{model} konnt nicht aktualisiert werden!"
       create_success: "%{model} erfolgreich angelegt."
-      create_fail: "%{model} konte nicht angelegt werden!"
+      create_fail: "%{model} konnte nicht angelegt werden!"
       destroy_success: "%{model} erfolgreich gelöscht."
       destroy_fail: "%{model} konnte nicht gelöscht werden!"
       not_found: "%{model} wurde nicht gefunden!"  
