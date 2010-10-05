@@ -4,3 +4,29 @@ de:
     buttons:
       create: "%{model} erstellen"
       update: "%{model} speichern"
+    actions:
+      view: "%{model} anzeigen"
+      edit: "%{model} bearbeiten"
+      destroy: "%{model} löschen"
+      view_all: "Alle anzeigen"
+      back_to_list: "Zurück zur Liste"
+      new: "%{model} hinzufügen"
+    titles:
+      index: "Übersicht: %{model}"
+      new: "%{model} anlegen"
+      edit: "%{model} bearbeiten"
+      show: "%{model}"
+    confirms:
+      destroy: "Wollen Sie diesen Eintrag wirklich löschen?"
+      accept: "Wollen Sie diese Action wirklich akzeptieren?"
+    flashes:
+      update_success: "%{model} erfolgreich aktualisiert."
+      update_fail: "%{model} konnt nicht aktualisiert werden!"
+      create_success: "%{model} erfolgreich angelegt."
+      create_fail: "%{model} konte nicht angelegt werden!"
+      destroy_success: "%{model} erfolgreich gelöscht."
+      destroy_fail: "%{model} konnte nicht gelöscht werden!"
+      not_found: "%{model} wurde nicht gefunden!"  
+    boolean:
+      true_value: "Ja"
+      false_value: "Nein"

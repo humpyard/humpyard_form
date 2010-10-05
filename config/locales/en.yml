@@ -4,3 +4,29 @@ en:
     buttons:
       create: "Create %{model}"
       update: "Update %{model}"
+    actions:
+      view: "View %{model}"
+      edit: "Edit %{model}"
+      destroy: "Destroy %{model}"
+      view_all: "View all"
+      back_to_list: "Back to list"
+      new: "New %{model}"
+    titles:
+      index: "Index: %{model}"
+      new: "Create %{model}"
+      edit: "Edit %{model}"
+      show: "%{model}"
+    confirms:
+      destroy: "Do you really want to delete this entry?"
+      accept: "Do you really want to accept this action?"
+    flashes:
+      update_success: "Successfully updated %{model}."
+      update_fail: "Failed to update %{model}!"
+      create_success: "Successfully created %{model}."
+      create_fail: "Failed to create %{model}!"
+      destroy_success: "Successfully destroyed %{model}."
+      destroy_fail: "Failed to destroy %{model}!"
+      not_found: "%{model} could not be found!"  
+    boolean:
+      true_value: "Yes"
+      false_value: "No"
