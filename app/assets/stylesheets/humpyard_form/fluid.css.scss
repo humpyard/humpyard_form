@@ -1,0 +1,16 @@
+@import "humpyard_form/helpers/css3";
+.humpyard-form {
+  textarea {
+    width: 100%;
+  }
+  input.text {
+    width: 100%;
+  }
+  .fields {
+    border: 1px solid #999;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    @include gradient(#eee, #fff);
+    @include border-radius(2px);
+  }
+}

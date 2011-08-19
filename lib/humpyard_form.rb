@@ -2,8 +2,8 @@
 # Welcome to HumpyardForm
 
 module HumpyardForm
-  # This is the actual version of the HumpyardForm gem
-  VERSION = ::File.read(::File.join(::File.dirname(__FILE__), "..", "VERSION")).strip  
+  autoload :Config, 'humpyard_form/config'
+  autoload :FormBuilder, 'humpyard_form/form_builder'
     
   def self.load options = {} #:nodoc:
     require ::File.expand_path('../humpyard_form/rake_tasks', __FILE__)
@@ -39,15 +39,11 @@ module HumpyardForm
   end
 end
 
-require File.expand_path('../humpyard_form/config', __FILE__)
 require File.expand_path('../humpyard_form/engine', __FILE__)
-require File.expand_path('../humpyard_form/compass', __FILE__)
-require File.expand_path('../humpyard_form/form_builder', __FILE__)
 
 require 'i18n'
 I18n.load_path += Dir.glob("#{File.dirname(__FILE__)}/../config/locales/*.yml")
 I18n.backend.reload!
-puts "=> #{I18n.t 'humpyard_form.start', :version => HumpyardForm::VERSION}"
 
 require File.expand_path('../humpyard_form/action_controller/base', __FILE__)
 require File.expand_path('../humpyard_form/action_view/form_helper', __FILE__)

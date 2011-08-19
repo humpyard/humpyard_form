@@ -1,0 +1,1 @@
+#=require humpyard_form_jquery/jquery.form
