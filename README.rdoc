@@ -5,23 +5,14 @@ A HumpyardForm is a form builder spun off from humpyard.
 == Installation
 
 * Add HumpyardForm to your Rails application's Gemfile. It does require edge rails at the moment.
-    gem 'rails',        :git => 'git://github.com/rails/rails.git'
-    gem 'haml',         :git => 'git://github.com/nex3/haml.git'
-    gem 'compass',      :git => 'git://github.com/chriseppstein/compass.git'
-    gem 'humpyard_form',       :git => 'git://github.com/starpeak/humpyard_form.git'
+    gem "rails",         '>=3.1.0'
+    gem 'haml',          '>=3.0.0'
+    gem 'humpyard_form', '>=0.1.0'
   
-* Change into your Rails application's directory
-
-* Generate HumpyardForm skeleton
-    rails generate humpyard_form:skeleton
-
-* Migrate the HumpyardForm database tables
-    rake humpyard_form:db:migrate
-
 == API Documentation
 
 * API Documentation can be created by running 
-    rake rdoc
+    rake doc:yard
   from the humpyard_form project directory.
 
 == Note on Patches/Pull Requests
@@ -38,4 +29,4 @@ We want to send our thanks to Justin French and his co-workers as formtastic dee
 
 == Copyright
 
-Copyright (c) 2010 Sven G. Brönstrup. See LICENSE for details.
+Copyright (c) 2010-2011 Sven G. Brönstrup. See LICENSE for details.
