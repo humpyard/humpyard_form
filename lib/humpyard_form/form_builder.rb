@@ -48,6 +48,14 @@ module HumpyardForm
       @renderer.render :partial => "/humpyard_form/form_element", :locals => {:form => self, :name => method, :options => options, :as => options[:as]}
     end
     
+    def properties_for(method, options={}, &block)
+      properties = object.send(method)
+      form = HumpyardForm::FormBuilder.new(@renderer, properties, :url => @url, :as => "#{namespace}[#{method}]")
+      inner_haml = @renderer.capture_haml(form, &block)
+      result = @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml}
+      result.html_safe
+    end
+    
     def inputs_for(method, options={}, &block)
       records = object.send(method)
       result = ''
