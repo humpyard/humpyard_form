@@ -45,37 +45,47 @@ module HumpyardForm
     def input(method, options={}) #:nodoc:
       options[:as] ||= default_input_type(method)
       options[:translation_info] = translation_info(method)
-      @renderer.render :partial => "/humpyard_form/form_element", :locals => {:form => self, :name => method, :options => options, :as => options[:as]}
+      @renderer.render partial: "/humpyard_form/form_element", locals: {form: self, name: method, options: options, as: options[:as]}
     end
     
     def properties_for(method, options={}, &block)
       properties = object.send(method)
-      form = HumpyardForm::FormBuilder.new(@renderer, properties, :url => @url, :as => "#{namespace}[#{method}]")
+      
+      options[:css_class] ||= 'fields'
+    
+      form = HumpyardForm::FormBuilder.new(@renderer, properties, url: @url, as: "#{namespace}[#{method}]")
       inner_haml = @renderer.capture_haml(form, &block)
-      result = @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml}
+      result = @renderer.render partial: '/humpyard_form/fields_for', locals: {form: form, inner_haml: inner_haml, options: options}
       result.html_safe
     end
     
     def inputs_for(method, options={}, &block)
       records = object.send(method)
-      result = ''
+      result = "<div class=\"attr_#{method} inputs_for#{options[:dynamic] ? ' dynamic_inputs' : ''}\">"
       counter = 0
+      
+      options[:css_class] ||= 'fields'
+      
       records.each do |record|
-        form = HumpyardForm::FormBuilder.new(@renderer, record, :url => @url, :as => "#{namespace}[#{method}_attributes][#{counter}]")
+        form = HumpyardForm::FormBuilder.new(@renderer, record, url: @url, as: "#{namespace}[#{method}_attributes][]")
         inner_haml = @renderer.capture_haml(form, &block)
-        result += @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml}
+        result += @renderer.render partial: '/humpyard_form/fields_for', locals: {form: form, inner_haml: inner_haml, options: options}
         counter += 1
       end
-      if options[:add_empty_set]
-        form = HumpyardForm::FormBuilder.new(@renderer, records.new, :url => @url, :as => "#{namespace}[#{method}_attributes][#{counter}]")
+      if options[:add_empty_set] or options[:dynamic]
+        form = HumpyardForm::FormBuilder.new(@renderer, records.new, url: @url, as: "#{namespace}[#{method}_attributes][]")
         inner_haml = @renderer.capture_haml(form, &block)
-        result += @renderer.render :partial => '/humpyard_form/fields_for', :locals => {:form => form, :inner_haml => inner_haml} 
+        
+        result += '<div class="spare">'    
+        result += @renderer.render partial: '/humpyard_form/fields_for', locals: {form: form, inner_haml: inner_haml, options: options} 
+        result += '</div>'
       end
+      result += '</div>'
       result.html_safe
     end
     
     def submit(options={})
-      @renderer.render :partial => '/humpyard_form/submit', :locals => {:form => self, :options => options}
+      @renderer.render partial: '/humpyard_form/submit', locals: {form: self, options: options}
     end
 
     def translation_info(method) #:nodoc:
@@ -84,7 +94,7 @@ module HumpyardForm
         if tmp
           column = tmp.column_for_attribute(method) if tmp.respond_to?(:column_for_attribute)
           if column
-            {:locales => HumpyardForm::config.locales, :column => column}
+            {locales: HumpyardForm::config.locales, column: column}
           end
         end
       else
@@ -222,10 +232,10 @@ module HumpyardForm
       return method.to_s.pluralize.to_sym if group_class.reflect_on_association(method.to_s.pluralize)
 
       # This is for belongs_to associations named differently than their class
-      # form.input :parent, :group_by => :customer
+      # form.input :parent, group_by: :customer
       # eg. 
       # class Project
-      #   belongs_to :parent, :class_name => 'Project', :foreign_key => 'parent_id'
+      #   belongs_to :parent, class_name: 'Project', foreign_key: 'parent_id'
       #   belongs_to :customer
       # end
       # class Customer
@@ -237,11 +247,11 @@ module HumpyardForm
       # This is for has_many associations named differently than their class
       # eg. 
       # class Project
-      #   belongs_to :parent, :class_name => 'Project', :foreign_key => 'parent_id'
+      #   belongs_to :parent, class_name: 'Project', foreign_key: 'parent_id'
       #   belongs_to :customer
       # end
       # class Customer
-      #   has_many :tasks, :class_name => 'Project', :foreign_key => 'customer_id'
+      #   has_many :tasks, class_name: 'Project', foreign_key: 'customer_id'
       # end
       possible_associations =  group_class.reflect_on_all_associations(:has_many).find_all{|assoc| assoc.klass == object_class}
       return possible_associations.first.name.to_sym if possible_associations.count == 1

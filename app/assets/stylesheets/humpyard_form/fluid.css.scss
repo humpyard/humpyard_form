@@ -10,7 +10,20 @@
     border: 1px solid #999;
     padding: 10px;
     margin: 0 0 10px 0;
-    @include gradient(#eee, #fff);
+    @include gradient(#ddd, #eee);
     @include border-radius(2px);
+  }
+  
+  .dynamic_inputs {
+    .fields {
+      position: relative;
+      padding-right: 40px;
+      .icons {
+        position: absolute;
+        width: 20px;
+        right: 10px;
+        bottom: 10px;
+      }
+    }
   }
 }

@@ -29,4 +29,4 @@ We want to send our thanks to Justin French and his co-workers as formtastic dee
 
 == Copyright
 
-Copyright (c) 2010-2011 Sven G. Brönstrup. See LICENSE for details.
+Copyright (c) 2009-2011 Sven G. Brönstrup. See LICENSE for details.

@@ -1,6 +1,8 @@
-.fields
+%div{class: options[:css_class]}
   - if form.object.respond_to? :id
-    %input{:type => :hidden, :name => "#{form.namespace}[id]", :value => form.object.id}
+    %input{type: :hidden, name: "#{form.namespace}[id]", value: form.object.id}
   = inner_haml
+  - if options[:dynamic]
+    %input{type: :hidden, name: "#{form.namespace}[_destroy]", value: 0, :'data-destroy-input' => 'true'}
   
   
