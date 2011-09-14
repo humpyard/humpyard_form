@@ -6,7 +6,9 @@
 #
 #=require humpyard_form_jquery/jquery.form
 class @HumpyardForm
-  constructor : (@form_elem) ->        
+  constructor : (@form_elem) ->       
+    @form_elem.data 'humpyardForm', this
+     
     # configure date pickers
     # if !detectNative 'date'
     $('input[data-type=date]', @form_elem).datepicker 
@@ -35,6 +37,34 @@ class @HumpyardForm
           $('input[data-destroy-input]', fields).attr 'value', '1'
           fields.hide()
         fields.append(icons)
+    
+    @form_elem.trigger('humpyard:form:init', @form_elem)
+        
+  submit : (dialog, targetForm) ->
+    if typeof(targetForm) == 'undefined'
+      targetForm = @form_elem
+    
+    options = 
+      dataType: 'json',
+      complete: (xhr, status) ->
+        result = jQuery.parseJSON(xhr.responseText)
+        # reset error messages
+        $('.field-highlight', @form_elem).removeClass("ui-state-error")
+        $('.field-errors', @form_elem).empty().hide()
+        # execute commands given by ajax call
+        # $.each result, -> (attr, options)
+        for attr, options of result
+          if $.humpyard.ajax_dialog_commands[attr]
+            $.humpyard.ajax_dialog_commands[attr] dialog, targetForm, options
+
+    if @form_elem.find('input[type=file]').length > 0 || @form_elem.attr("enctype") == "multipart/form-data"
+      options['data'] = 
+        ul_quirk: 'true'
+      options['iframe'] = true
+    
+
+    if @form_elem.trigger('humpyard:form:submit')
+      @form_elem.ajaxSubmit(options);
   
   detectNative: (type) -> 
     input = document.createElement('input')
