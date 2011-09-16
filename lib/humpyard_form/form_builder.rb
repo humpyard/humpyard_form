@@ -131,12 +131,13 @@ module HumpyardForm
 
       if column
         # handle the special cases where the column type doesn't map to an input method
-        return :time_zone if column.type == :string && method.to_s =~ /time_zone/
-        return :select    if column.type == :integer && method.to_s =~ /_id$/
+        return :file if column.type == :string and defined?(::CarrierWave) and @object and @object.send(method).is_a?(::CarrierWave::Uploader::Base)
+        return :time_zone if column.type == :string and method.to_s =~ /time_zone/
+        return :select    if column.type == :integer and method.to_s =~ /_id$/
         return :datetime  if column.type == :timestamp
         return :numeric   if [:integer, :float, :decimal].include?(column.type)
-        return :password  if column.type == :string && method.to_s =~ /password/
-        #return :country   if column.type == :string && method.to_s =~ /country/
+        return :password  if column.type == :string and method.to_s =~ /password/
+        #return :country   if column.type == :string and method.to_s =~ /country/
 
         # otherwise assume the input name will be the same as the column type (eg string_input)
         return column.type
