@@ -22,7 +22,22 @@ class @HumpyardForm
       showButtonPanel: true,
       changeMonth: true,
       changeYear: true,
-      dateFormat: 'yy-mm-dd'
+      dateFormat: 'yy-mm-dd',
+      beforeShow: (input,inst) ->
+        if $(input).attr('data-popup-position') == 'top'
+          cnt = 0;
+          interval = setInterval ->
+            cnt++;
+            if inst.dpDiv.is(":visible")
+              parent = inst.input.closest "div"
+              inst.dpDiv.position 
+                my: "left top", 
+                at: "left bottom",
+                of: parent
+              clearInterval(interval)
+            else if cnt > 50
+              clearInterval(interval)
+          , 10
       
     $('.inputs_for.dynamic_inputs', @form_elem).each ->
       spare_container = $('.spare', this)

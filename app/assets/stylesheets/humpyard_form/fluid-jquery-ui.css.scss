@@ -66,7 +66,7 @@ $jquery-ui-widget-error-text-color: #383838;
   outline: 0;
   line-height: 1.3;
   text-decoration: none;
-  font-size: 100%;
+  font-size: 10px;
   list-style: none;
 }
 
@@ -140,7 +140,7 @@ $jquery-ui-widget-error-text-color: #383838;
 ----------------------------------*/
 .ui-widget { 
   font-family: Segoe UI, Arial, sans-serif;
-  font-size: 1.1em;
+  font-size: 10px;
 }
   
 .ui-widget .ui-widget { 
@@ -231,7 +231,7 @@ $jquery-ui-widget-error-text-color: #383838;
   color: $jquery-ui-widget-highlight-text-color;
 }
   
-.ui-state-highlight {
+.ui-sortable .ui-state-highlight {
   height: 20px;
   line-height: 2px; 
 }
