@@ -13,7 +13,7 @@ end
 
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'globalize3',         '~> 0.0'
+gem 'globalize3',         '>= 0.2.0'
 
 group :test do
   gem 'ruby-debug19'
