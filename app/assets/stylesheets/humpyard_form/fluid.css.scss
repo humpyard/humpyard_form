@@ -1,4 +1,18 @@
-@import "humpyard_form/helpers/css3";
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -khtml-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin gradient($from, $to) {
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -moz-linear-gradient($from, $to);
+  background-image: linear-gradient($from, $to);
+}
+
 .humpyard-form {
   textarea {
     width: 100%;
